@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Free Movies - Movie Makers Team</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #1a1a1a; /* dark black background */
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    /* Header */
+    header {
+      width: 100%;
+      max-width: 900px;
+      background-color: #b30000; /* strong red */
+      border-bottom: 4px solid #660000; /* darker red border */
+      padding: 20px 0;
+      text-align: center;
+      color: white;
+      margin-bottom: 40px;
+      border-radius: 8px 8px 0 0;
+      box-shadow: 0 4px 6px rgba(179, 0, 0, 0.6);
+    }
+    header h1 {
+      font-size: 2.5rem;
+    }
+
+    /* Flip card container */
+    .flip-card {
+      background-color: transparent;
+      width: 250px;
+      height: 320px;
+      perspective: 1000px;
+      margin-bottom: 50px;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+      box-shadow: 0 4px 8px rgba(179, 0, 0, 0.5);
+      border-radius: 15px;
+      cursor: pointer;
+      background: #330000; /* dark red background */
+      color: white;
+    }
+
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .flip-card-front {
+      background-color: #b30000; /* bright red */
+      color: white;
+    }
+
+    .flip-card-front img,
+    .dev-card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover; /* show full image */
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.7);
+      border: 3px solid #660000;
+      background-color: #330000; /* dark background behind images */
+    }
+
+    .flip-card-front h2 {
+      font-size: 1.5rem;
+    }
+
+    .flip-card-back {
+      background-color: #660000; /* darker red */
+      color: white;
+      transform: rotateY(180deg);
+      font-size: 1rem;
+      text-align: center;
+      box-shadow: inset 0 0 15px rgba(0,0,0,0.7);
+    }
+
+    /* Developer grid */
+    .developer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      width: 100%;
+      max-width: 900px;
+      margin-bottom: 40px;
+    }
+
+    .dev-card {
+      background: #330000;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(179, 0, 0, 0.4);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      color: white;
+    }
+
+    .dev-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(179, 0, 0, 0.7);
+    }
+
+    .dev-card h3 {
+      margin-bottom: 8px;
+      font-size: 1.25rem;
+      color: #ff4d4d; /* bright red text */
+    }
+
+    .dev-card p {
+      font-size: 1rem;
+      color: #ff9999; /* light red text */
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+      .flip-card {
+        width: 220px;
+        height: 280px;
+        margin-bottom: 30px;
+      }
+      .developer-grid {
+        gap: 20px;
+      }
+      .dev-card {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Free Movies - Movie Makers Team</h1>
+  </header>
+
+  <!-- Lead Developer Flip Card -->
+  <div class="flip-card" aria-label="Lead Director Profile">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Lead Director John Doe" />
+        <h2>John Doe</h2>
+      </div>
+      <div class="flip-card-back">
+        <h2>Lead Director</h2>
+        <p>John has directed over 20 acclaimed films, known for his storytelling and visual style.</p>
+        <p>Email: john.doe@freemovies.com</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Developer Grid -->
+  <div class="developer-grid" aria-label="Movie Makers Team Profiles">
+    <div class="dev-card" tabindex="0">
+      <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Producer Jane Smith" />
+      <h3>Jane Smith</h3>
+      <p>Producer specializing in managing budgets and schedules for blockbuster movies.</p>
+    </div>
+    <div class="dev-card" tabindex="0">
+      <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="Actor Mark Wilson" />
+      <h3>Mark Wilson</h3>
+      <p>Lead actor known for his versatile roles in drama and action genres.</p>
+    </div>
+    <div class="dev-card" tabindex="0">
+      <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Screenwriter Lisa Brown" />
+      <h3>Lisa Brown</h3>
+      <p>Screenwriter creating compelling stories that captivate audiences worldwide.</p>
+    </div>
+  </div>
+
+</body>
+</html>
